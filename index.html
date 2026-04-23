@@ -23,7 +23,7 @@ body{background:#F7F6F2;color:#333;line-height:1.6}
 .logo{font-size:22px;font-weight:bold;color:var(--main)}
 .nav-menu{display:flex;gap:30px}
 .nav-menu a{text-decoration:none;color:var(--text);font-size:15px}
-.btn{background:var(--main);color:#fff;padding:10px 22px;border-radius:8px;border:none;cursor:pointer;text-decoration:none}
+.btn{background:var(--main);color:#fff;padding:10px 22px;border-radius:8px;border:none;cursor:pointer;text-decoration:none;font-size:16px}
 .btn-outline{background:transparent;border:1px solid var(--main);color:var(--main)}
 
 /* 首屏Hero（替换新背景图） */
@@ -97,6 +97,60 @@ background:rgba(0,0,0,0.3);padding:30px;border-radius:12px;backdrop-filter:blur(
 .booking h2{margin-bottom:16px;font-size:30px}
 .booking p{margin-bottom:30px;font-size:18px}
 
+/* 新增：表单样式 */
+.booking-form {
+  max-width: 500px;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.1);
+  padding: 30px;
+  border-radius: 16px;
+  backdrop-filter: blur(4px);
+}
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #fff;
+}
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  background: #fff;
+  color: #333;
+  outline: none;
+  transition: 0.2s;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  box-shadow: 0 0 0 3px rgba(212,184,150,0.3);
+}
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+.booking .btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 18px;
+  background: var(--wood);
+  color: var(--main);
+  font-weight: bold;
+  border: none;
+  transition: 0.2s;
+}
+.booking .btn:hover {
+  background: #fff;
+  color: var(--main);
+}
+
 /* 滚动渐显动画 */
 .fade{opacity:0;transform:translateY(30px);transition:0.6s ease}
 .fade.active{opacity:1;transform:translateY(0)}
@@ -112,6 +166,7 @@ background:rgba(0,0,0,0.3);padding:30px;border-radius:12px;backdrop-filter:blur(
   .store-text,.store-img-box{width:100%}
   .equipment-grid{grid-template-columns:1fr 1fr}
   .product-grid,.product-multi-grid{grid-template-columns:1fr}
+  .booking-form { padding: 20px; }
 }
 </style>
 </head>
@@ -135,7 +190,6 @@ background:rgba(0,0,0,0.3);padding:30px;border-radius:12px;backdrop-filter:blur(
 <div class="hero">
 <div class="container hero-box">
 <h1>专业颈腰结构管理<br>温和养护·不再反复</h1>
-<!-- 👇 这里是修改的位置，删除了"非医疗、" -->
 <p>放松疗愈，科学改善颈椎腰椎酸痛僵硬不适，体验专业的颈腰养护服务</p>
 <div class="hero-buttons">
 <a href="#booking" class="btn">预约体验</a>
@@ -246,7 +300,6 @@ background:rgba(0,0,0,0.3);padding:30px;border-radius:12px;backdrop-filter:blur(
 <p>✅ 专业团队，多年颈腰养护经验</p>
 </div>
 <div class="store-img-box">
-<!-- 替换为新的四张门店图片 -->
 <img class="store-img" src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/aeb6c86c7a5e46d29d9e3092de662637.png~tplv-a9rns2rl98-24:720:720.png?lk3s=8e244e95&rcl=20260422153452FE4E22F9842F344BA04C&rrcfp=8a172a1a&x-expires=1777448093&x-signature=1jxZ7tL%2BqWef9OSUdEX28pFqaRg%3D" alt="康劲前台服务">
 <img class="store-img" src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/3cee44dfd52d45e684de4286ce920c97.png~tplv-a9rns2rl98-24:720:720.png?lk3s=8e244e95&rcl=20260422153452FE4E22F9842F344BA04C&rrcfp=8a172a1a&x-expires=1777448093&x-signature=C8uJd8Idy%2BTCfY23gGngLa9G8AE%3D" alt="康劲专业咨询">
 <img class="store-img" src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/c617d87f5e8e431cb19211914ed0ce01.png~tplv-a9rns2rl98-24:720:720.png?lk3s=8e244e95&rcl=20260422153452FE4E22F9842F344BA04C&rrcfp=8a172a1a&x-expires=1777448093&x-signature=i6PTUah7vkbyPvqYzMcDqODXXpE%3D" alt="康劲养护服务场景">
@@ -280,16 +333,13 @@ background:rgba(0,0,0,0.3);padding:30px;border-radius:12px;backdrop-filter:blur(
 </div>
 </div>
 
-<!-- 多产品组合展示 -->
 <div class="product-multi-grid">
 <div class="product-multi-item">
-<!-- 草本热感贴图片 -->
 <img class="product-multi-img" src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/39c9fc2c1ec54a7493feec2efaa07e46.png~tplv-a9rns2rl98-24:720:720.png?lk3s=8e244e95&rcl=2026042215480657908B6C2C93974B3858&rrcfp=8a172a1a&x-expires=1777448886&x-signature=gDsTaY%2FCJKbrtf9ggU6mgNaJMEs%3D" alt="草本热感贴">
 <h3 class="product-title">草本热感贴（三款配方）</h3>
 <p class="product-desc">深度放松款（老版/高压人群）：舒缓紧绷 放松身心<br>舒缓解压款（女性/情绪压力）：舒缓情绪 温和安抚<br>清醒焕活款（司机/久坐久驾）：焕活状态 提神醒脑</p>
 </div>
 <div class="product-multi-item">
-<!-- 替换为新的居家放松热敷包图片 -->
 <img class="product-multi-img" src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/b04964b4e2704aa49f08912385db00fd.png~tplv-a9rns2rl98-24:720:720.png?lk3s=8e244e95&rcl=202604221550363726502AC0744449FAA2&rrcfp=8a172a1a&x-expires=1777449038&x-signature=hfb1VNxjZMQ8Ywyc3ze6BkQ8xqM%3D" alt="居家放松热敷包">
 <h3 class="product-title">居家放松热敷包</h3>
 <p class="product-desc">草本温热、舒缓放松、热敷理疗、重复使用<br>把门店的放松带回家<br>随时随地享受颈腰养护</p>
@@ -306,16 +356,13 @@ background:rgba(0,0,0,0.3);padding:30px;border-radius:12px;backdrop-filter:blur(
 <p>科技赋能，提升养护体验</p>
 </div>
 
-<!-- 标签切换 -->
 <div class="device-tabs">
 <button class="device-tab active" onclick="switchTab('equipment')">专业设备</button>
 </div>
 
-<!-- 设备展示（缩小布局） -->
 <div class="device-content active" id="equipment">
 <div class="equipment-grid">
 <div class="equipment-item">
-<!-- 替换为新的智能熏蒸舱图片 -->
 <img class="equipment-img" src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/e66679d6cbec4cf8ac6a21a7a3cbe4a3.png~tplv-a9rns2rl98-24:720:720.png?lk3s=8e244e95&rcl=2026042215541380B49AC055148F48BE2A&rrcfp=8a172a1a&x-expires=1777449254&x-signature=0%2FvyJq09hfT2qVmy8LccGWcMDzM%3D" alt="智能熏蒸舱">
 <h3 class="equipment-title">智能熏蒸舱</h3>
 <p class="equipment-desc">草本熏蒸，舒缓肌肉</p>
@@ -331,7 +378,6 @@ background:rgba(0,0,0,0.3);padding:30px;border-radius:12px;backdrop-filter:blur(
 <p class="equipment-desc">颈椎牵引，快速缓解</p>
 </div>
 <div class="equipment-item">
-<!-- 颈腰评估系统图片 -->
 <img class="equipment-img" src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/758efd91688e4412811cfb67adedefef.png~tplv-a9rns2rl98-24:720:720.png?lk3s=8e244e95&rcl=2026042215393680C1FABAFF1179489593&rrcfp=8a172a1a&x-expires=1777448376&x-signature=hdUNSR1PcIbpYKzatTkVIICrHjc%3D" alt="颈腰评估系统">
 <h3 class="equipment-title">颈腰评估系统</h3>
 <p class="equipment-desc">精准检测，科学评估</p>
@@ -355,12 +401,38 @@ background:rgba(0,0,0,0.3);padding:30px;border-radius:12px;backdrop-filter:blur(
 </div>
 </div>
 
-<!-- 预约转化区 -->
+<!-- ========== 预约转化区（集成Formspree表单） ========== -->
 <div class="booking fade" id="booking">
 <div class="container">
 <h2>先做一次免费专业颈腰评估</h2>
 <p>无推销·先体验效果·温和舒适不生硬</p>
-<a href="#" class="btn">立即在线预约</a>
+<!-- Formspree 表单 -->
+<div class="booking-form">
+<form action="https://formspree.io/f/mlgaoorj" method="POST">
+  <!-- 防垃圾邮件字段 -->
+  <input type="text" name="_gotcha" style="display:none">
+  
+  <div class="form-group">
+    <label for="name">您的姓名</label>
+    <input type="text" id="name" name="name" placeholder="请填写您的姓名" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="phone">联系电话</label>
+    <input type="tel" id="phone" name="phone" placeholder="请填写您的手机号码" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="message">需求描述（可选）</label>
+    <textarea id="message" name="message" placeholder="例如：颈肩酸痛、腰椎不适、希望预约评估时间等"></textarea>
+  </div>
+  
+  <!-- 可选：提交后跳转回首页或自定义感谢页 -->
+  <input type="hidden" name="_next" value="https://kangjinjiankang.github.io/thanks.html">
+  
+  <button type="submit" class="btn">提交预约</button>
+</form>
+</div>
 </div>
 </div>
 
@@ -368,15 +440,12 @@ background:rgba(0,0,0,0.3);padding:30px;border-radius:12px;backdrop-filter:blur(
 <script>
 // 标签切换功能
 function switchTab(tabName) {
-  // 隐藏所有内容
   document.querySelectorAll('.device-content').forEach(item => {
     item.classList.remove('active');
   });
-  // 取消所有标签激活状态
   document.querySelectorAll('.device-tab').forEach(item => {
     item.classList.remove('active');
   });
-  // 激活选中的标签和内容
   document.getElementById(tabName).classList.add('active');
   event.target.classList.add('active');
 }
